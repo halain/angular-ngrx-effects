@@ -1,0 +1,32 @@
+<div class="alert alert-info text-center" role="alert" *ngIf="loading">
+    <h4 class="alert-heading">Cargando...</h4>
+    <p>
+      <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0"></p>
+  </div>
+  
+  <div class="alert alert-danger" role="alert" *ngIf="error && !loading">
+    <h4 class="alert-heading">Error</h4>
+    <pre>
+      {{ error | json}}
+    </pre>
+    <p class="mb-0"></p>
+  </div>
+  
+  
+  <div class="row" *ngIf="!loading && usuario">
+      
+      <div class="col-4">
+          <img [src]="usuario.avatar" alt="avatar" class="img-thumbnail">
+      </div>
+
+      <div class="col">
+          <div class="list-group">
+              <li class="list-group-item"><b>ID: </b>{{ usuario.id }}</li>
+              <li class="list-group-item"><b>Nombre: </b>{{ usuario.first_name }}</li>
+              <li class="list-group-item"><b>Apellido: </b>{{ usuario.last_name }}</li>
+          </div>
+      </div>
+  
+    </div>
